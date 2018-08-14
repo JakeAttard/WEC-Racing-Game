@@ -9,9 +9,24 @@ function Opposition() {
     this.isOvertakenBy = false;
 
     this.show = function() {
+      var imgArray = new Array(1);
+      for (let carImage = 0; carImage < imgArray.length; carImage++){
+      imgArray[carImage] = 'images/img' + carImage + '.png';
+      }
+        
+        var random = imgArray[Math.floor(Math.random()*imgArray.length)];
+
+        image(imgArray[random], this.x, this.y);
+    }  
+    
+    /*
+    
+    this.show = function() {
         image(wecAudi, this.x, this.y);
         image(wecMcdonalds, this.x, this.y);
     }
+    
+    */
 
     this.update = function() {
         this.y += this.speed;
@@ -36,6 +51,6 @@ function Opposition() {
     }
 
     this.boom = function() {
-        image(carCrashed, this.x-50, this.y);
+        image(carCrashed, this.x-20, this.y);
     }
 }

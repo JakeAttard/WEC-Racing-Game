@@ -1,6 +1,6 @@
 function raceTracks() {
     this.w = 10;
-    this.h = 30;
+    this.h = 50;
 
     this.x = floor(width/2 - this.w/2);
     this.y = 0;

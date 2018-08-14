@@ -6,7 +6,7 @@ var wecMcdonalds;
 
 var carCrashed;
 var carRepaired;
-var font; // Same
+var font;
 var driverSpeed = 8;
 var opposition = [];
 var raceTrack = [];
@@ -15,14 +15,14 @@ var carRepairLives = 3;
 
 
 function preload() {
-    wecPorsche = loadImage('assets/Porsche.png');
-    wecAudi = loadImage('assets/Audi.png');
-    wecMcdonalds = loadImage('assets/Mcdonalds.png');
+    wecPorsche = loadImage('images/Porsche.png');
+    wecMcdonalds = loadImage('images/img0.png');
+    wecAudi = loadImage('images/img1.png');
     
-    carCrashed = loadImage('assets/boom.png');
-    carRepaired = loadImage('assets/CarRepair.png');
+    carCrashed = loadImage('images/boom.png');
+    carRepaired = loadImage('images/CarRepair.png');
    
-    font = loadFont('assets/Rabbit-Hole.ttf');
+    font = loadFont('Rabbit-Hole.ttf');
 }
 
 function setup() {
@@ -103,6 +103,13 @@ function draw() {
     for (var i = 0 ; i < carRepairLives ; i++) {
         image(carRepaired, 30 + (i*70), height-60);
     }
+    
+    textSize(40);
+        textFont(font);
+        textStyle(BOLD);
+        textAlign(LEFT);
+        fill(255);
+        text('Repair Lives:', 30, 1025);   
 
     // Game Over
     if (carRepairLives === 0) {
