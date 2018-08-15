@@ -17,7 +17,12 @@ function Opposition() {
     var randomIndex = Math.floor(Math.random() * imgArray.length - 1) + 1 ;
 
     this.show = function() {
-    image(imgArray[randomIndex].name, this.x, this.y);
+        if(imgArray[randomIndex].flag == 1){
+            image(imgArray[randomIndex].name, this.x, this.y);
+        }else{
+            fill(color(0, 0, 255));
+            rect(this.x, this.y, 200, 200);
+        }
     }
     
     this.flag = imgArray[randomIndex].flag;

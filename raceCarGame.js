@@ -111,7 +111,7 @@ function draw() {
         image(carRepaired, 30 + (i*70), height-60);
     }
     
-    textSize(40);
+        textSize(40);
         textFont(font);
         textStyle(BOLD);
         textAlign(LEFT);
