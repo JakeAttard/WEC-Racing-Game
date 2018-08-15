@@ -7,8 +7,13 @@ function raceTracks() {
 
     this.show = function() {
         strokeWeight(5);
-        fill(255, 255, 255);
+        fill(255, 255, 0);
         rect(this.x, this.y, this.w, this.h);
+        
+        strokeWeight(5);
+        fill(255, 255, 255);
+        rect(this.x / 2 * 1, this.y, this.w, this.h);
+        rect(this.x * 1.5, this.y, this.w, this.h);
     }
 
     this.update = function() {
