@@ -16,8 +16,8 @@ var carRepairLives = 3;
 
 function preload() {
     wecPorsche = loadImage('images/Porsche.png');
-    wecMcdonalds = loadImage('images/img0.png');
-    wecAudi = loadImage('images/img1.png');
+    wecMcdonalds = loadImage('images/wecMcdonalds.png');
+    wecAudi = loadImage('images/wecAudi.png');
     
     carCrashed = loadImage('images/boom.png');
     carRepaired = loadImage('images/CarRepair.png');

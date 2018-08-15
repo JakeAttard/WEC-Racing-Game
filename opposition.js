@@ -8,16 +8,12 @@ function Opposition() {
 
     this.isOvertakenBy = false;
 
-    this.show = function() {
-      var imgArray = new Array(1);
-      for (let carImage = 0; carImage < imgArray.length; carImage++){
-      imgArray[carImage] = 'images/img' + carImage + '.png';
-      }
-        
-        var random = imgArray[Math.floor(Math.random()*imgArray.length)];
+    var imgArray = [wecPorsche, wecMcdonalds, wecAudi];    
+    var randomIndex = Math.floor(Math.random() * imgArray.length - 1) + 1 ;
 
-        image(imgArray[random], this.x, this.y);
-    }  
+    this.show = function() {
+    image(imgArray[randomIndex], this.x, this.y);
+    }
     
     /*
     
