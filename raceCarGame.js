@@ -37,7 +37,7 @@ function draw() {
     background(56, 56, 56);
     
     // Race track markings frame rate
-    if (frameCount % 25 === 0) {
+    if (frameCount % 15 === 0) {
         raceTrack.push(new raceTracks());
     }
 
