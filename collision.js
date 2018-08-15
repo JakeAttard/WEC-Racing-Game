@@ -1,4 +1,4 @@
-function Opposition() {
+function Collision() {
     this.w = 150;
     this.h = 300;
 
@@ -7,24 +7,17 @@ function Opposition() {
     this.speed = driverSpeed-1;
 
     this.isOvertakenBy = false;
-    
-    var imgArray = [{"name":wecPorsche, "flag":1},
-     {"name":wecMcdonalds, "flag":1},
-     {"name":wecAudi, "flag":1},
-     {"name":square, "flag":0}
-     ];  
-    
+
+    var imgArray = [collisionObject];    
     var randomIndex = Math.floor(Math.random() * imgArray.length - 1) + 1 ;
 
     this.show = function() {
-    image(imgArray[randomIndex].name, this.x, this.y);
+    image(imgArray[randomIndex], this.x, this.y);
     }
     
-    this.flag = imgArray[randomIndex].flag;
 
     this.update = function() {
-        var x = Math.round(frameCount/200);
-        this.y += 10*x;
+        this.y += this.speed;
     }
 
     this.offscreen = function() {

@@ -17,7 +17,8 @@ function raceTracks() {
     }
 
     this.update = function() {
-        this.y += driverSpeed;
+        var x = Math.round(frameCount/200);
+        this.y += driverSpeed + 10*x;
     }
 
     this.offscreen = function() {

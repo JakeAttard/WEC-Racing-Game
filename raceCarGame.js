@@ -21,6 +21,8 @@ function preload() {
     
     carCrashed = loadImage('images/boom.png');
     carRepaired = loadImage('images/CarRepair.png');
+
+    square = loadImage('images/square.png');
    
     font = loadFont('Rabbit-Hole.ttf');
 }
@@ -30,6 +32,7 @@ function setup() {
 
     raceTrack.push(new raceTracks());
     opposition.push(new Opposition());
+
     driver = new Driver();
 }
 
@@ -59,14 +62,16 @@ function draw() {
 
     // Opposition Show Up
     for (var i = opposition.length-1 ; i >= 0 ; i--) {
+        console.log(opposition[i].flag);
         opposition[i].show();
         opposition[i].update();
 
         if (opposition[i].overtakenBy(driver) && opposition[i].isOvertakenBy === false) {
-            carsOvertaken += 1;
-            opposition[i].isOvertakenBy = true;
+            if(opposition[i].flag == 1){
+                carsOvertaken += 1;
+                opposition[i].isOvertakenBy = true;
+            }
         }
-
         // Opposition collide with driver, get destroyed
         if (opposition[i].hits(driver)) {
             opposition[i].boom();
@@ -82,6 +87,7 @@ function draw() {
         }
     }
 
+    console.log(carRepairLives);
     // Driver Shown
     driver.show();
 
@@ -92,6 +98,7 @@ function draw() {
     if (keyIsDown(RIGHT_ARROW)) {
         driver.turnRight();
     }
+
 
     // Driver Stats
     textSize(40);
@@ -121,5 +128,15 @@ function draw() {
         textAlign(CENTER);
         fill(255);
         text('GAME OVER', width/2, height/2);
+    }
+}
+
+function mouseMoved(){
+    var currentMousePos = pmouseX;
+    if(currentMousePos < mouseX){
+        driver.turnRight();
+    }
+    if(currentMousePos > mouseX){
+        driver.turnLeft();
     }
 }
