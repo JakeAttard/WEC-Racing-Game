@@ -11,7 +11,7 @@ function Opposition() {
     var imgArray = [{"name":wecPorsche, "flag":1},
      {"name":wecMcdonalds, "flag":1},
      {"name":wecAudi, "flag":1},
-     {"name":square, "flag":0}
+     {"name":tyres, "flag":0}
      ];  
     
     var randomIndex = Math.floor(Math.random() * imgArray.length - 1) + 1 ;
@@ -20,8 +20,8 @@ function Opposition() {
         if(imgArray[randomIndex].flag == 1){
             image(imgArray[randomIndex].name, this.x, this.y);
         }else{
-            fill(color(0, 0, 255));
-            rect(this.x, this.y, 200, 200);
+            //fill(color(0, 0, 255));
+            image(tyres, this.x, this.y, 200, 200);
         }
     }
     
@@ -29,7 +29,7 @@ function Opposition() {
 
     this.update = function() {
         var x = Math.round(frameCount/200);
-        this.y += 10*x;
+        this.y += 2*x;
     }
 
     this.offscreen = function() {

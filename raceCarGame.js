@@ -22,7 +22,7 @@ function preload() {
     carCrashed = loadImage('images/boom.png');
     carRepaired = loadImage('images/CarRepair.png');
 
-    square = loadImage('images/square.png');
+    tyres = loadImage('images/tyres.png');
    
     font = loadFont('Rabbit-Hole.ttf');
 }
@@ -56,7 +56,7 @@ function draw() {
     }
     
     // Opposition Cars Appear After Frame Rate
-    if (frameCount % 130 === 0) {
+    if (frameCount % 100 === 0) {
         opposition.push(new Opposition());
     }
 
