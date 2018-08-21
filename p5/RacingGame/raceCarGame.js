@@ -127,7 +127,7 @@ function draw() {
         textStyle(BOLD);
         textAlign(CENTER);
         fill(255);
-        text('GAME OVER', width/2, height/2);
+        text('YOU CRASHED! GAME OVER', width/2, height/2);
     }
 }
 
