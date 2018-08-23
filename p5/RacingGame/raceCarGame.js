@@ -34,14 +34,14 @@ function setup() {
 
 function draw() {
     background(56, 56, 56);
-    
+
     // Race track markings frame rate
     if (frameCount % 15 === 0) {
         raceTrack.push(new raceTracks());
     }
 
     // Show Race Track Markings
-    for (var i = raceTrack.length-1 ; i >= 0 ; i--) {
+    for (var i = raceTrack.length - 1; i >= 0; i--) {
         raceTrack[i].show();
         raceTrack[i].update();
 
@@ -50,20 +50,20 @@ function draw() {
             raceTrack.splice(i, 1);
         }
     }
-    
+
     // Opposition Cars Appear After Frame Rate
     if (frameCount % 100 === 0) {
         opposition.push(new Opposition());
     }
 
     // Opposition Show Up
-    for (var i = opposition.length-1 ; i >= 0 ; i--) {
+    for (var i = opposition.length - 1; i >= 0; i--) {
         console.log(opposition[i].flag);
         opposition[i].show();
         opposition[i].update();
 
         if (opposition[i].overtakenBy(driver) && opposition[i].isOvertakenBy === false) {
-            if(opposition[i].flag == 1){
+            if (opposition[i].flag == 1) {
                 carsOvertaken += 1;
                 opposition[i].isOvertakenBy = true;
             }
@@ -74,7 +74,7 @@ function draw() {
             opposition.splice(i, 1);
 
             // Collision Pentaly and Repair Life Lost
-            carsOvertaken = (carsOvertaken >= 0)?(carsOvertaken-3):0;
+            carsOvertaken = (carsOvertaken >= 0) ? (carsOvertaken - 3) : 0;
             carRepairLives--;
         }
         // Remove Opposition
@@ -100,7 +100,7 @@ function draw() {
     if (keyIsDown(DOWN_ARROW)) {
         driver.turnRight();
     }
-    
+
 
 
     // Driver Stats
@@ -110,16 +110,16 @@ function draw() {
     fill(255);
     text('Cars Overtaken In Race: ' + carsOvertaken, 30, 60);
 
-    for (var i = 0 ; i < carRepairLives ; i++) {
-        image(carRepaired, 30 + (i*70), height-60);
+    for (var i = 0; i < carRepairLives; i++) {
+        image(carRepaired, 30 + (i * 70), height - 60);
     }
-    
-        textSize(60);
-        textFont(font);
-        textStyle(BOLD);
-        textAlign(LEFT);
-        fill(255);
-        text('Repair Lives:', 30, 1025);   
+
+    textSize(60);
+    textFont(font);
+    textStyle(BOLD);
+    textAlign(LEFT);
+    fill(255);
+    text('Repair Lives:', 30, 1025);
 
     // Game Over
     if (carRepairLives === 0) {
@@ -130,18 +130,18 @@ function draw() {
         textStyle(BOLD);
         textAlign(CENTER);
         fill(255);
-        text('YOU CRASHED! GAME OVER.', width/2, height/2);
+        text('YOU CRASHED! GAME OVER.', width / 2, height / 2);
     }
 }
 
 // Mouse Movement
 
-function mouseMoved(){
+function mouseMoved() {
     var currentMousePos = pmouseX;
-    if(currentMousePos < mouseX){
+    if (currentMousePos < mouseX) {
         driver.turnRight();
     }
-    if(currentMousePos > mouseX){
+    if (currentMousePos > mouseX) {
         driver.turnLeft();
     }
 }
