@@ -3,7 +3,6 @@ var wecPorsche;
 var wecAudi;
 var wecMcdonalds;
 
-
 var carCrashed;
 var carRepaired;
 var font;
@@ -18,12 +17,9 @@ function preload() {
     wecPorsche = loadImage('images/Porsche.png');
     wecMcdonalds = loadImage('images/wecMcdonalds.png');
     wecAudi = loadImage('images/wecAudi.png');
-    
     carCrashed = loadImage('images/boom.png');
     carRepaired = loadImage('images/CarRepair.png');
-
     tyres = loadImage('images/tyres.png');
-   
     font = loadFont('Rabbit-Hole.ttf');
 }
 
@@ -78,7 +74,7 @@ function draw() {
             opposition.splice(i, 1);
 
             // Collision Pentaly and Repair Life Lost
-            carsOvertaken = (carsOvertaken >= 10)?(carsOvertaken-5):0;
+            carsOvertaken = (carsOvertaken >= 0)?(carsOvertaken-3):0;
             carRepairLives--;
         }
         // Remove Opposition
@@ -98,10 +94,17 @@ function draw() {
     if (keyIsDown(RIGHT_ARROW)) {
         driver.turnRight();
     }
+    if (keyIsDown(UP_ARROW)) {
+        driver.turnLeft();
+    }
+    if (keyIsDown(DOWN_ARROW)) {
+        driver.turnRight();
+    }
+    
 
 
     // Driver Stats
-    textSize(40);
+    textSize(60);
     textFont(font);
     textAlign(LEFT);
     fill(255);
@@ -111,7 +114,7 @@ function draw() {
         image(carRepaired, 30 + (i*70), height-60);
     }
     
-        textSize(40);
+        textSize(60);
         textFont(font);
         textStyle(BOLD);
         textAlign(LEFT);
@@ -127,9 +130,11 @@ function draw() {
         textStyle(BOLD);
         textAlign(CENTER);
         fill(255);
-        text('YOU CRASHED! GAME OVER', width/2, height/2);
+        text('YOU CRASHED! GAME OVER.', width/2, height/2);
     }
 }
+
+// Mouse Movement
 
 function mouseMoved(){
     var currentMousePos = pmouseX;

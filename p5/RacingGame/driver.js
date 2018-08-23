@@ -10,12 +10,12 @@ function Driver() {
     }
 
     this.turnLeft = function() {
-        this.x -= 5;
+        this.x -= 10;
         this.x = constrain(this.x, 0, width-this.w);
     }
 
     this.turnRight = function() {
-        this.x += 5;
+        this.x += 10;
         this.x = constrain(this.x, 0, width-this.w);
     }
 }
